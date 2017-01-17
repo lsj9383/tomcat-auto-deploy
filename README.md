@@ -21,7 +21,8 @@ java -jar tad-client.jar -rhttp://192.168.1.2:100 -atrans
 ```
 nohup java -jar tad-server.jar &
 ```
-在远程主机上启动tomcat自动部署服务，采用的密码是`root`, 服务的端口默认是`100`。
+在远程主机上启动tomcat自动部署服务，服务的端口默认是`100`。需要注意的是，本项目没有提供关闭服务的方式，若需要关闭该服务，需要通过`kill`来杀掉该进程。使用`cat nohup.out`可以看到该进程id。
+![](https://github.com/lsj9383/tomcat-auto-deploy/blob/master/icon/dispid.png)
 
 ##二、*配置*
 该项目涉及到的配置的参数
