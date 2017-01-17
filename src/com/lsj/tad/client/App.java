@@ -4,6 +4,8 @@ import java.io.File;
 
 import com.lsj.http.util.HttpMimeParams;
 import com.lsj.http.util.HttpParams;
+import com.lsj.tad.Conf;
+import com.lsj.util.FileUtil;
 import com.lsj.util.ZipUtil;
 
 public class App {
@@ -11,8 +13,8 @@ public class App {
 	public static void main(String[] args){
 		
 		//1).初始化配置文件
-		ClientConf conf = new ClientConf(new String[]{"-uroot", "-proot123", "-atrans"});
-		//ClientConf conf = new ClientConf(args);
+		//Conf conf = new Conf(new String[]{"-proot123", "-atrans"});
+		Conf conf = new Conf(args);
 		ZipUtil zipUtil = new ZipUtil();
 		
 		//2).压缩文件
@@ -32,18 +34,17 @@ public class App {
 		HttpParams params = new HttpMimeParams()
 				.put("webapp", new File("webapp.zip"))
 				.put("work", new File("work.zip"))
-				.put("username", conf.getUsername())
+				.put("appname", conf.getAppName())
 				.put("password", conf.getPassword());
 		try {
 			String strResponse = params.Send(conf.getRemote());
 			System.out.println(strResponse);
 		} catch (Exception e) {
-			//错误，退出
+			//错误
 			System.out.println("Interrupt, deploy error...");
-			System.exit(1);
+		}finally{
+			FileUtil.DeleteFile(new File("webapp.zip"));
+			FileUtil.DeleteFile(new File("work.zip"));
 		}
-		
-		System.out.println("deploy finished");
 	}
-
 }

@@ -24,9 +24,11 @@ public class ZipUtil {
 				new File(parentPath).mkdirs();
 				OutputStream fos = new FileOutputStream(file);
 				InputStream2OutputStream(zin, fos);
+				fos.close();
 			}
 			zin.closeEntry();;
 		}
+		zin.close();
 	}
 	
 	//将指定文件/文件夹压缩到指定的zip
@@ -51,6 +53,7 @@ public class ZipUtil {
 			zout.putNextEntry(new ZipEntry(entryName));
 			InputStream fis = new FileInputStream(file);
 			InputStream2OutputStream(fis, zout);
+			fis.close();
 			zout.closeEntry();
 		}else if(file.isDirectory()){
 			File[] files = file.listFiles();

@@ -1,4 +1,4 @@
-package com.lsj.util;
+package com.lsj.tad.server;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,8 +24,9 @@ public class MimeContext {
 		for(FileItem fileItem : fileItems) {			
 			if(fileItem.getContentType() == null){
 				paramMap.put(fileItem.getFieldName(), fileItem.getString());
-			}
-			else{
+			}else if(fileItem.getContentType().startsWith("text/plain")){
+				paramMap.put(fileItem.getFieldName(), fileItem.getString());
+			}else{
 				fileMap.put(fileItem.getFieldName(), fileItem);
 			}
 		}

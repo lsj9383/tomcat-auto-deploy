@@ -1,28 +1,23 @@
-package com.lsj.tad.client;
+package com.lsj.tad;
 
-public class ClientConf {
+public class Conf {
 	
-	private String username;
 	private String password;
 	private String remote;
 	private String appName;
 	private String catalinaHome;
 	
-	public ClientConf(){
-		username = "root";
+	public Conf(){
 		password = "root";
 		catalinaHome = System.getenv("CATALINA_HOME");
 	}
 	
-	public ClientConf(String[] args){
+	public Conf(String[] args){
 		this();
 		for(String arg : args){
 			String command = arg.substring(0, 2);
 			String value = arg.substring(2);
 			switch(command){
-			case "-u":
-				username = value;
-				break;
 			case "-p":
 				password = value;
 				break;
@@ -35,6 +30,7 @@ public class ClientConf {
 			case "-c":
 				catalinaHome = value;
 				break;
+			default: break;
 			}
 		}
 	}
@@ -42,16 +38,8 @@ public class ClientConf {
 	public String getWebappPath(){
 		return catalinaHome+"/webapps/"+appName;
 	}
-	
 	public String getWorkPath(){
 		return catalinaHome+"/work/Catalina/localhost/"+appName;
-	}
-	
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
 	}
 	public String getPassword() {
 		return password;
