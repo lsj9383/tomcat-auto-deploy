@@ -10,19 +10,22 @@ public abstract class AbstractMIMEHttpHandler implements HttpHandler {
 
 	@Override
 	public void handle(HttpExchange exchange) throws IOException {
+		PrintWriter out = new PrintWriter(exchange.getResponseBody());
+		exchange.getResponseHeaders().add("Content-type", "text/plain");
+		exchange.sendResponseHeaders(200, 0);
 		if(!exchange.getRequestMethod().equals("POST")){
-			throw new IOException("method error");
-		}
-		try {
-			MimeContext mimeContext = new MimeContext(exchange);
-			PrintWriter out = new PrintWriter(exchange.getResponseBody());
-			exchange.getResponseHeaders().add("Content-type", "text/plain");
-			exchange.sendResponseHeaders(200, 0);
-			execute(exchange, mimeContext, out);
+			out.println("request error");
 			out.flush();
 			out.close();
-		} catch (Exception e) {
-			e.printStackTrace();
+		}else{
+			try {
+				MimeContext mimeContext = new MimeContext(exchange);
+				execute(exchange, mimeContext, out);
+				out.flush();
+				out.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

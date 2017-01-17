@@ -13,7 +13,6 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 
 public class App {
-	
 	public static void main(String[] args) throws Exception {
 		int port = 100;
 		for(String arg : args){
@@ -27,7 +26,7 @@ public class App {
 		server.createContext("/", new MyHandler(args));
 		server.setExecutor(null);
 		server.start();
-		System.out.println("Server is listening on port "+port);  
+		System.out.println("Server is listening on port "+port);
     }
     
     static class MyHandler extends AbstractMIMEHttpHandler {
@@ -70,6 +69,10 @@ public class App {
 				zipUtil.Decompress(strTempFileWork, new File(conf.getWorkPath()).getParent());
 				FileUtil.DeleteFile(new File(strTempFileWebApp));
 				FileUtil.DeleteFile(new File(strTempFileWork));
+				
+				//4).重启tomcat服务
+				System.out.println(Command.exeCmd("shutdown.sh"));
+				System.out.println(Command.exeCmd("startup.sh"));
 				out.println("deploy success");
 			}catch(Exception e){
 				out.print("deploy error");
