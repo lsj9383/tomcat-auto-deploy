@@ -13,7 +13,7 @@ java -jar tad-client.jar -proot -rhttp://192.168.1.2:100 -atrans
 ```
 如此便可以将本地名为trans的webapp，部署到192.168.1.2:100的远程主机上.使用的密码是`root`，这个密码在远程端配置，与远程主机匹配才可以进行部署，否则会报错。<br>
 部署成功:
-![]()
+![](https://github.com/lsj9383/tomcat-auto-deploy/blob/master/icon/client-demo.png)
 
 ###2.*远程主机*
 将**output/server-output/**文件夹拷贝到远程主机上。并执行以下指令:
