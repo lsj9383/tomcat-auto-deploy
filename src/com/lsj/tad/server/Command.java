@@ -2,8 +2,19 @@ package com.lsj.tad.server;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.lang.management.ManagementFactory;
 
 public class Command {
+	public static String pid(){
+		String pid = ManagementFactory.getRuntimeMXBean().getName();  
+        int indexOf = pid.indexOf('@');  
+        if (indexOf > 0)  
+        {  
+            pid = pid.substring(0, indexOf);  
+        }
+        return pid;
+	}
+	
 	public static String exeCmd(String commandStr) {  
         BufferedReader br = null;  
         String res = null;

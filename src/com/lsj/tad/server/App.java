@@ -26,7 +26,7 @@ public class App {
 		server.createContext("/", new MyHandler(args));
 		server.setExecutor(null);
 		server.start();
-		System.out.println("Server is listening on port "+port);
+		System.out.println(Command.pid()+" Server is listening on port "+port);
     }
     
     static class MyHandler extends AbstractMIMEHttpHandler {
