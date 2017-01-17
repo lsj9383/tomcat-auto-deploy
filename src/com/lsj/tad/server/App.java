@@ -15,7 +15,6 @@ import com.sun.net.httpserver.HttpServer;
 public class App {
 	
 	public static void main(String[] args) throws Exception {
-		//args = new String[]{"-proot", "80"};
 		int port = 100;
 		for(String arg : args){
 			if(!arg.startsWith("-")){
@@ -39,7 +38,7 @@ public class App {
     	
 		@Override
 		public void execute(HttpExchange exchange, MimeContext mimeContext, PrintWriter out) {
-			Conf conf = new Conf(args);
+			Conf conf = new Conf("", args);
 			String password = mimeContext.getParamMap().get("password");
 			String appname = mimeContext.getParamMap().get("appname");
 			FileItem fiWebapp = mimeContext.getFileItem().get("webapp");

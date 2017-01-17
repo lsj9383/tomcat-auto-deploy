@@ -13,8 +13,7 @@ public class App {
 	public static void main(String[] args){
 		
 		//1).初始化配置文件
-		//Conf conf = new Conf(new String[]{"-proot123", "-atrans"});
-		Conf conf = new Conf(args);
+		Conf conf = new Conf("client-conf.properties", args);
 		ZipUtil zipUtil = new ZipUtil();
 		
 		//2).压缩文件

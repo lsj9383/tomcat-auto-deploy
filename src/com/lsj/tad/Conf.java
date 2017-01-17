@@ -1,5 +1,9 @@
 package com.lsj.tad;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.Properties;
+
 public class Conf {
 	
 	private String password;
@@ -12,8 +16,23 @@ public class Conf {
 		catalinaHome = System.getenv("CATALINA_HOME");
 	}
 	
-	public Conf(String[] args){
+	public Conf(String strFile){
 		this();
+		File fileProperties = new File(strFile);
+		if(fileProperties.exists()){
+			try{
+				Properties p = new Properties();
+				p.load(new FileInputStream(fileProperties));
+				password = p.getProperty("password") == null ? password : p.getProperty("password");
+				remote   = p.getProperty("remote")   == null ? remote   : p.getProperty("remote");
+				appName  = p.getProperty("appName")  == null ? appName  : p.getProperty("appName");
+				catalinaHome = p.getProperty("catalinaHome") == null ? catalinaHome : p.getProperty("catalinaHome");
+			}catch(Exception e){}
+		}
+	}
+	
+	public Conf(String strFile, String[] args){
+		this(strFile);
 		for(String arg : args){
 			String command = arg.substring(0, 2);
 			String value = arg.substring(2);
