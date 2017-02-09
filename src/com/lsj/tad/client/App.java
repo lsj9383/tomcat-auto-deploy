@@ -12,9 +12,22 @@ public class App {
 	
 	public static void main(String[] args){
 		
-		//1).初始化配置文件
+		//0).初始化配置文件
 		Conf conf = new Conf("client-conf.properties", args);
 		ZipUtil zipUtil = new ZipUtil();
+		
+		//1).向服务器验证密码是否正确
+		HttpParams accessParams = new HttpMimeParams().put("password", conf.getPassword());
+		try {
+			String result = accessParams.Send(conf.getRemote()+"/access");
+			if(!result.equals("true")){
+				System.out.println("password wrong...exit");
+				System.exit(1);
+			}
+		} catch (Exception e1) {
+			System.out.println("Access interrupt.");
+			System.exit(1);
+		}
 		
 		//2).压缩文件
 		System.out.println("compressing...");

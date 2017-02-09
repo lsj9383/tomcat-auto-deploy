@@ -24,10 +24,29 @@ public class App {
 		InetSocketAddress addr = new InetSocketAddress(port);
 		HttpServer server = HttpServer.create(addr, 0);
 		server.createContext("/", new MyHandler(args));
+		server.createContext("/access", new AccessHandler(args));
 		server.setExecutor(null);
 		server.start();
 		System.out.println(Command.pid()+" Server is listening on port "+port);
     }
+	
+	static class AccessHandler extends AbstractMIMEHttpHandler {
+		final private String[] args;
+    	public AccessHandler(String[] args){
+    		this.args = args;
+    	}
+    	
+		@Override
+		public void execute(HttpExchange exchange, MimeContext mimeContext, PrintWriter out) {
+			Conf conf = new Conf("", args);
+			String password = mimeContext.getParamMap().get("password");
+			if(password.equals(conf.getPassword())){
+				out.print("true");
+			}else{
+				out.print("false");
+			}
+		}
+	} 
     
     static class MyHandler extends AbstractMIMEHttpHandler {
     	final private String[] args;
