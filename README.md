@@ -1,45 +1,45 @@
-#Tomcat Auto Deploy
-±¾ÏîÄ¿ÓÃÓÚtomcat·þÎñÆ÷Ô¶³Ì×Ô¶¯²¿ÊðÍøÕ¾Ó¦ÓÃ¡£
-##ÔËÐÐ»·¾³
-* jdk1.6¼°ÆäÒÔÉÏ°æ±¾(ÎªÁËÖ§³Ösun¹«Ë¾µÄhttpserver)¡£
-* tomcat7¼°ÆäÒÔÉÏ°æ±¾£¬ÐèÒªÅäÖÃCATALINA_HOMEµ½»·¾³±äÁ¿¡£
-* Ô¶³ÌÖ÷»úÒªÇólinux»·¾³¡£
+# Tomcat Auto Deploy
+æœ¬é¡¹ç›®ç”¨äºŽtomcatæœåŠ¡å™¨è¿œç¨‹è‡ªåŠ¨éƒ¨ç½²ç½‘ç«™åº”ç”¨ã€‚
+## è¿è¡ŒçŽ¯å¢ƒ
+* jdk1.6åŠå…¶ä»¥ä¸Šç‰ˆæœ¬(ä¸ºäº†æ”¯æŒsunå…¬å¸çš„httpserver)ã€‚
+* tomcat7åŠå…¶ä»¥ä¸Šç‰ˆæœ¬ï¼Œéœ€è¦é…ç½®CATALINA_HOMEåˆ°çŽ¯å¢ƒå˜é‡ã€‚
+* è¿œç¨‹ä¸»æœºè¦æ±‚linuxçŽ¯å¢ƒã€‚
 
-##Ò».*¿ìËÙ¿ªÊ¼*
-ÕâÀïÓÃ¾¡Á¿¼òµ¥µÄÓïÑÔÃèÊöÈçºÎÍ¨¹ýÃüÁîÐÐ×Ô¶¯½«±¾µØ¿ª·¢µÄÍøÕ¾²¿Êðµ½Ô¶³ÌÖ÷»úÉÏ¡£±¾ÏîÄ¿ÔÚÔ¶³ÌÖ÷»úºÍ±¾µØ¶¼ÐèÒª½øÐÐÅäÖÃ¡£
-###1.*¿Í»§¶Ë*
-½«**output/client-output/**ÎÄ¼þ¼Ð¿½±´µ½±¾»úÉÏ¡£ÔÚÔ¶³ÌÖ÷»úÅäÖÃÍê³ÉµÄÇé¿öÏÂ£¬½«webapp²¿Êðµ½Ô¶³ÌÖ÷»úÏÂÊÇ·Ç³£¼òµ¥µÄ£¬Ö»ÐèÍ¨¹ýÒÔÏÂÖ¸Áî:
+## ä¸€.*å¿«é€Ÿå¼€å§‹*
+è¿™é‡Œç”¨å°½é‡ç®€å•çš„è¯­è¨€æè¿°å¦‚ä½•é€šè¿‡å‘½ä»¤è¡Œè‡ªåŠ¨å°†æœ¬åœ°å¼€å‘çš„ç½‘ç«™éƒ¨ç½²åˆ°è¿œç¨‹ä¸»æœºä¸Šã€‚æœ¬é¡¹ç›®åœ¨è¿œç¨‹ä¸»æœºå’Œæœ¬åœ°éƒ½éœ€è¦è¿›è¡Œé…ç½®ã€‚
+### 1.*å®¢æˆ·ç«¯*
+å°†**output/client-output/**æ–‡ä»¶å¤¹æ‹·è´åˆ°æœ¬æœºä¸Šã€‚åœ¨è¿œç¨‹ä¸»æœºé…ç½®å®Œæˆçš„æƒ…å†µä¸‹ï¼Œå°†webappéƒ¨ç½²åˆ°è¿œç¨‹ä¸»æœºä¸‹æ˜¯éžå¸¸ç®€å•çš„ï¼Œåªéœ€é€šè¿‡ä»¥ä¸‹æŒ‡ä»¤:
 ```
 java -jar tad-client.jar -rhttp://192.168.1.2:100 -atrans
 ```
-Èç´Ë±ã¿ÉÒÔ½«±¾µØÃûÎªtransµÄwebapp£¬²¿Êðµ½192.168.1.2:100µÄÔ¶³ÌÖ÷»úÉÏ¡£<br>
-²¿Êð³É¹¦:
+å¦‚æ­¤ä¾¿å¯ä»¥å°†æœ¬åœ°åä¸ºtransçš„webappï¼Œéƒ¨ç½²åˆ°192.168.1.2:100çš„è¿œç¨‹ä¸»æœºä¸Šã€‚<br>
+éƒ¨ç½²æˆåŠŸ:
 ![](https://github.com/lsj9383/tomcat-auto-deploy/blob/master/icon/client-demo.png)
 
-###2.*Ô¶³ÌÖ÷»ú*
-½«**output/server-output/**ÎÄ¼þ¼Ð¿½±´µ½Ô¶³ÌÖ÷»úÉÏ¡£²¢Ö´ÐÐÒÔÏÂÖ¸Áî:
+### 2.*è¿œç¨‹ä¸»æœº*
+å°†**output/server-output/**æ–‡ä»¶å¤¹æ‹·è´åˆ°è¿œç¨‹ä¸»æœºä¸Šã€‚å¹¶æ‰§è¡Œä»¥ä¸‹æŒ‡ä»¤:
 ```
 nohup java -jar tad-server.jar &
 ```
-ÔÚÔ¶³ÌÖ÷»úÉÏÆô¶¯tomcat×Ô¶¯²¿Êð·þÎñ£¬·þÎñµÄ¶Ë¿ÚÄ¬ÈÏÊÇ`100`¡£ÐèÒª×¢ÒâµÄÊÇ£¬±¾ÏîÄ¿Ã»ÓÐÌá¹©¹Ø±Õ·þÎñµÄ·½Ê½£¬ÈôÐèÒª¹Ø±Õ¸Ã·þÎñ£¬ÐèÒªÍ¨¹ý`kill`À´É±µô¸Ã½ø³Ì¡£Ê¹ÓÃ`cat nohup.out`¿ÉÒÔ¿´µ½¸Ã½ø³Ìid¡£
+åœ¨è¿œç¨‹ä¸»æœºä¸Šå¯åŠ¨tomcatè‡ªåŠ¨éƒ¨ç½²æœåŠ¡ï¼ŒæœåŠ¡çš„ç«¯å£é»˜è®¤æ˜¯`100`ã€‚éœ€è¦æ³¨æ„çš„æ˜¯ï¼Œæœ¬é¡¹ç›®æ²¡æœ‰æä¾›å…³é—­æœåŠ¡çš„æ–¹å¼ï¼Œè‹¥éœ€è¦å…³é—­è¯¥æœåŠ¡ï¼Œéœ€è¦é€šè¿‡`kill`æ¥æ€æŽ‰è¯¥è¿›ç¨‹ã€‚ä½¿ç”¨`cat nohup.out`å¯ä»¥çœ‹åˆ°è¯¥è¿›ç¨‹idã€‚
 ![](https://github.com/lsj9383/tomcat-auto-deploy/blob/master/icon/dispid.png)
 
-##¶þ¡¢*ÅäÖÃ*
-¸ÃÏîÄ¿Éæ¼°µ½µÄÅäÖÃµÄ²ÎÊý
+## äºŒã€*é…ç½®*
+è¯¥é¡¹ç›®æ¶‰åŠåˆ°çš„é…ç½®çš„å‚æ•°
 
-###1.*Ä¬ÈÏÖµ*
-ÔÚÃ»ÓÐÉèÖÃÄ¬ÈÏÖµµÄÊ±ºò£¬¸÷Ïî²ÎÊý²ÉÓÃÄ¬ÈÏÖµ¡£ÎÞÂÛÊÇ¿Í»§¶Ë»¹ÊÇ·þÎñÆ÷¶Ë£¬¶¼ÓÃ`»·¾³±äÁ¿CATALINA_HOME`À´Ö¸¶¨tomcatµÄ¸ùÄ¿Â¼¡£·þÎñÆ÷¶Ë²ÉÓÃ`100`×÷Îª·þÎñµÄÄ¬ÈÏ¶Ë¿Ú¡£
+### 1.*é»˜è®¤å€¼*
+åœ¨æ²¡æœ‰è®¾ç½®é»˜è®¤å€¼çš„æ—¶å€™ï¼Œå„é¡¹å‚æ•°é‡‡ç”¨é»˜è®¤å€¼ã€‚æ— è®ºæ˜¯å®¢æˆ·ç«¯è¿˜æ˜¯æœåŠ¡å™¨ç«¯ï¼Œéƒ½ç”¨`çŽ¯å¢ƒå˜é‡CATALINA_HOME`æ¥æŒ‡å®štomcatçš„æ ¹ç›®å½•ã€‚æœåŠ¡å™¨ç«¯é‡‡ç”¨`100`ä½œä¸ºæœåŠ¡çš„é»˜è®¤ç«¯å£ã€‚
 
-###2.*ÅäÖÃÎÄ¼þ*
-·þÎñÆ÷¶ËµÄÅäÖÃÏà¶Ô¼òµ¥£¬²»²ÉÓÃÅäÖÃÎÄ¼þ£¬½öÔÚ¿Í»§¶ËÊ¹ÓÃ.ÅäÖÃÎÄ¼þÎª`client-conf.json`¡£
-* password, Ö¸¶¨Ô¶³ÌÖ÷»ú²¿ÊðÊ±ÐèÒªµÄÖ¸Áî¡£
-* remote, Ö¸¶¨Òª²¿ÊðÓ¦ÓÃµÄÔ¶³ÌÖ÷»ú
-* catalinHome,  Ö¸¶¨tomcatµÄ¸ùÂ·¾¶
-* appName, Ö¸¶¨Òª²¿ÊðµÄappName
+### 2.*é…ç½®æ–‡ä»¶*
+æœåŠ¡å™¨ç«¯çš„é…ç½®ç›¸å¯¹ç®€å•ï¼Œä¸é‡‡ç”¨é…ç½®æ–‡ä»¶ï¼Œä»…åœ¨å®¢æˆ·ç«¯ä½¿ç”¨.é…ç½®æ–‡ä»¶ä¸º`client-conf.json`ã€‚
+* password, æŒ‡å®šè¿œç¨‹ä¸»æœºéƒ¨ç½²æ—¶éœ€è¦çš„æŒ‡ä»¤ã€‚
+* remote, æŒ‡å®šè¦éƒ¨ç½²åº”ç”¨çš„è¿œç¨‹ä¸»æœº
+* catalinHome,  æŒ‡å®štomcatçš„æ ¹è·¯å¾„
+* appName, æŒ‡å®šè¦éƒ¨ç½²çš„appName
 
-###3.*ÃüÁîÐÐ*
-ÃüÁîÐÐÅäÖÃµÄ²ÎÊýµÄÓÅÏÈ¼¶ÊÇ´óÓÚÅäÖÃÎÄ¼þµÄ£¬Ò²¾ÍÊÇËµÅäÖÃÎÄ¼þºÍÃüÁîÐÐÖ¸¶¨µÄÏàÍ¬²ÎÊý£¬»á²ÉÓÃÃüÁîÐÐ¶ø·ÇÅäÖÃÎÄ¼þµÄ¡£ÕâÑù¿ÉÒÔ½«»ù´¡Öµ/³£ÓÃÖµÉè¶¨ÔÚÅäÖÃÎÄ¼þÖÐ¡£
-#####¿Í»§¶Ë
+### 3.*å‘½ä»¤è¡Œ*
+å‘½ä»¤è¡Œé…ç½®çš„å‚æ•°çš„ä¼˜å…ˆçº§æ˜¯å¤§äºŽé…ç½®æ–‡ä»¶çš„ï¼Œä¹Ÿå°±æ˜¯è¯´é…ç½®æ–‡ä»¶å’Œå‘½ä»¤è¡ŒæŒ‡å®šçš„ç›¸åŒå‚æ•°ï¼Œä¼šé‡‡ç”¨å‘½ä»¤è¡Œè€Œéžé…ç½®æ–‡ä»¶çš„ã€‚è¿™æ ·å¯ä»¥å°†åŸºç¡€å€¼/å¸¸ç”¨å€¼è®¾å®šåœ¨é…ç½®æ–‡ä»¶ä¸­ã€‚
+##### å®¢æˆ·ç«¯
 ```
 java -jar -a<appName>
           -r<remote>
@@ -47,7 +47,7 @@ java -jar -a<appName>
 		  -c<catalinHome>
 ```
 
-#####Ô¶³Ì¶Ë
+##### è¿œç¨‹ç«¯
 ```
 java -jar <port>
           -p<password>
