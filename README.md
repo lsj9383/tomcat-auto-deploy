@@ -43,13 +43,13 @@ nohup java -jar tad-server.jar &
 ```
 java -jar -a<appName>
           -r<remote>
-		  -p<password>
-		  -c<catalinHome>
+	  -p<password>
+	  -c<catalinHome>
 ```
 
 ##### 远程端
 ```
 java -jar <port>
           -p<password>
-		  -c<catalinHome>
+	  -c<catalinHome>
 ```
