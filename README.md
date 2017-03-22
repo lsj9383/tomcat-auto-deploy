@@ -8,7 +8,7 @@
 ## 一.*快速开始*
 这里用尽量简单的语言描述如何通过命令行自动将本地开发的网站部署到远程主机上。本项目在远程主机和本地都需要进行配置。
 ### 1.*客户端*
-将**output/client-output/**文件夹拷贝到本机上。在远程主机配置完成的情况下，将webapp部署到远程主机下是非常简单的，只需通过以下指令:
+将*output/client-output/*文件夹拷贝到本机上。在远程主机配置完成的情况下，将webapp部署到远程主机下是非常简单的，只需通过以下指令:
 ```
 java -jar tad-client.jar -rhttp://192.168.1.2:100 -atrans
 ```
@@ -17,7 +17,7 @@ java -jar tad-client.jar -rhttp://192.168.1.2:100 -atrans
 ![](https://github.com/lsj9383/tomcat-auto-deploy/blob/master/icon/client-demo.png)
 
 ### 2.*远程主机*
-将**output/server-output/**文件夹拷贝到远程主机上。并执行以下指令:
+将*output/server-output/*文件夹拷贝到远程主机上。并执行以下指令:
 ```
 nohup java -jar tad-server.jar &
 ```
